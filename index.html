@@ -1,37 +1,37 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Animator</title>
-	<link rel="stylesheet" href="styles/main.css">
-	<script src="js/main.js"></script>
+    <meta charset="UTF-8">
+    <title>Animator</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="js/main.js"></script>
 </head>
 <body>
-	<div id="test_block"></div>
-	<div id="test_block2"></div>
+    <div id="test_block"></div>
+    <div id="test_block2"></div>
 
-	<button class="start_animation_btn">Запустить анимацию</button>
+    <button class="start_animation_btn">Запустить анимацию</button>
 
-	<script>
-		document.querySelector('.start_animation_btn').addEventListener('click', function () {
-		    // Можно передавать параметры через цепочку вызовов
-		    new Animator( document.getElementById('test_block') )
-		            .animation({ borderWidth: 10, width: 100 })
-		            .duration(1000)
-		            .animation({ left: 100 })
-		            .duration(200)
-		            .animation({ left: 0 })
-		            .duration(1000)
-		            .animation({ left: 1000 })
-		            .duration(100)
-		            .start()
-		            .done(function () {
-		               console.log(a = this);
-		            });
+    <script>
+        document.querySelector('.start_animation_btn').addEventListener('click', function () {
+            // Можно передавать параметры через цепочку вызовов
+            new Animator( document.getElementById('test_block') )
+                    .animation({ borderWidth: 10, width: 100 })
+                    .duration(500)
+                    .animation({ left: 100 })
+                    .duration(1000)
+                    .animation({ left: 0 })
+                    .duration(500)
+                    .animation({ left: 1000 })
+                    .duration(2000)
+                    .start()
+                    .done(function () {
+                       console.log(a = this);
+                    });
 
-		    // Или указывать сразу при создание объекта
-		    new Animator( document.getElementById('test_block2'), { marginLeft: 1000, marginTop: 100 }, 5000 );
-		});
-	</script>
+            // Или указывать сразу при создание объекта
+            new Animator( document.getElementById('test_block2'), { marginLeft: 1000, marginTop: 100 }, 5000 );
+        });
+    </script>
 </body>
 </html>
