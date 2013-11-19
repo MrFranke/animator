@@ -14,6 +14,6 @@ new Animator( document.getElementById('test_block') )
                     });
 ```
 
-##TODO%
+##TODO:
 - Добавить разные виды анимаций
 - Добавить возможность анимировать цвета
