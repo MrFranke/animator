@@ -1,3 +1,5 @@
+[Пример работы слайдера](http://mrfranke.github.io/animator/)
+
 ```javascript
 new Animator( document.getElementById('test_block') )
                     .animation({ borderWidth: 10, width: 100 })
