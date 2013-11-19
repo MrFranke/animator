@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Animator</title>
+	<link rel="stylesheet" href="styles/main.css">
+	<script src="js/main.js"></script>
+</head>
+<body>
+	<div id="test_block"></div>
+	<div id="test_block2"></div>
+
+	<button class="start_animation_btn">Запустить анимацию</button>
+
+	<script>
+		document.querySelector('.start_animation_btn').addEventListener('click', function () {
+		    // Можно передавать параметры через цепочку вызовов
+		    new Animator( document.getElementById('test_block') )
+		            .duration(1000)
+		            .animation({ borderWidth: 10 })
+		            .animation({ marginLeft: 100 })
+		            .start()
+		            .done(function () {
+		               console.log(this);
+		            });
+
+		    // Или указывать сразу при создание объекта
+		    new Animator( document.getElementById('test_block2'), { marginLeft: 1000, marginTop: 100 } );
+		});
+	</script>
+</body>
+</html>

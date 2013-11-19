@@ -1,0 +1,14 @@
+#test_block{
+	height: 50px;
+	width: 50px;
+	border: 2px solid;
+	border-width: 2px;
+	background: cadetblue;
+}
+
+#test_block2{
+	height: 50px;
+	width: 50px;
+	border: 2px solid;
+	background: red;
+}
