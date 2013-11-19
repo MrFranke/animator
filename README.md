@@ -1,4 +1,4 @@
-[Пример работы слайдера](http://mrfranke.github.io/animator/)
+[Пример работы анимации](http://mrfranke.github.io/animator/)
 
 ```javascript
 new Animator( document.getElementById('test_block') )
