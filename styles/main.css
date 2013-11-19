@@ -4,6 +4,7 @@
 	border: 2px solid;
 	border-width: 2px;
 	background: cadetblue;
+	position: relative;
 }
 
 #test_block2{
@@ -11,4 +12,5 @@
 	width: 50px;
 	border: 2px solid;
 	background: red;
+	position: relative;
 }
