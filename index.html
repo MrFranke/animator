@@ -16,21 +16,32 @@
         document.querySelector('.start_animation_btn').addEventListener('click', function () {
             // Можно передавать параметры через цепочку вызовов
             new Animator( document.getElementById('test_block') )
+                    // Первый шаг анимации
                     .animation({ borderWidth: 10, width: 100 })
-                    .duration(500)
+                        .duration(500)
+
+                    // Следующий шаг анимации
                     .animation({ left: 100 })
-                    .duration(1000)
+                        .duration(1000) // Время выполнение анимации
+                        .easing(function (progress) {
+                            return Math.pow(progress, 3);
+                        }) // Функция, определяющая тип анимации
+
                     .animation({ left: 0 })
-                    .duration(500)
+                        .duration(500)
+                        .easing(function (progress) {
+                            return progress;
+                        })
+
                     .animation({ left: 1000 })
-                    .duration(2000)
+                        .duration(2000)
                     .start()
                     .done(function () {
                        console.log(a = this);
                     });
 
             // Или указывать сразу при создание объекта
-            new Animator( document.getElementById('test_block2'), { marginLeft: 1000, marginTop: 100 }, 5000 );
+            //new Animator( document.getElementById('test_block2'), { marginLeft: 1000, marginTop: 100 }, 5000 );
         });
     </script>
 </body>

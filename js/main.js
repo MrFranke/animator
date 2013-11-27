@@ -1,7 +1,10 @@
 function Animator ( element, animate, duration ) {
     this.element = element;
     this.options = {
-        duration: 1000
+        duration: 1000,
+        filter: function ( progress ) {
+            return progress;
+        }
     };
 
     this.startTime = new Date;
@@ -79,9 +82,12 @@ Animator.prototype.drawGlobalStack = function() {
  */
 Animator.prototype.changeStep = function() {
     if ( !this.steps.length ) { return false; }
+    
     this.startTime = new Date;
     this.animationsStack = [];
     this.options.duration = this.steps[ 0 ].duration;
+    this.options.filter = this.steps[ 0 ].filter || this.options.filter;
+
     var propertys = this.steps[ 0 ].step;
     this.steps.shift();
 
@@ -112,6 +118,8 @@ Animator.prototype.getStepFunc = function( property, value ) {
         var progress = (new Date - that.startTime)/that.options.duration
           , newVal;
         
+        progress = that.options.filter(progress)
+
         if (progress > 1) { progress = 1; }
         newVal = paramsValue + ( progress*val );
 
@@ -185,6 +193,18 @@ Animator.prototype.duration = function( duration ) {
 
     return this;
 };
+
+Animator.prototype.easing = function ( filter ) {
+    // Добавляет время исполнения анимации последнего шага
+    if ( this.steps.length ){
+        this.steps[ this.steps.length-1 ].filter = filter;
+        return this;
+    }
+
+    this.options.filter = filter;
+
+    return this;
+}
 
 /**
  * Записывает callback, который вызовется после завершения всей анимации
